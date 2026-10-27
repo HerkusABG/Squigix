@@ -3,195 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
+using System;
+using UnityEngine.InputSystem;
 
-public class Move
+public class Move : MonoBehaviour
 {
-    public bool coyoteBool;
+
     [HideInInspector]
     public float savedSpeedLimit;
-
 
     [SerializeField]
     float playerSpeed;
     [SerializeField]
-    float playerJumpStrength;
-    [SerializeField]
     float playerSpeedLimit;
-    [SerializeField]
-    float gravity;
-    [SerializeField]
-    float gravityDelayValue;
-
-
-    [SerializeField]
-    Vector3 debugVector;
-    [SerializeField]
-    float debugFloat;
-
-
-    public bool isGrounded;
-    public ReferenceData referenceDataAccess;
-    [SerializeField]
-    GameObject myCamera;
 
 
     [HideInInspector]
     public float horizontalInputFloat, verticalInputFloat;
-    float fallTimer;
-    float horizontalMovementValue;
-
-    [SerializeField]
-    float bhopTimer;
-    [SerializeField]
-    float bhopMultiplier = 1;
-
-    Coroutine jumpCoroutine;
-
-    public bool canJump;
-    public bool canJumpAC;
-
 
     Vector3 moveDirection;
-    Transform cameraTransform;
     Rigidbody manoRigidbody;
-    AreaCheckScript areaCheckAccess;
 
+    [SerializeField]
+    InputActionReference move;
 
-    public TextMeshProUGUI canJumpText;
-    public TextMeshProUGUI coyoteText;
-    public TextMeshProUGUI isGroundedText;
+    [SerializeField]
+    InputActionReference toggle;
+
 
     private void Start()
     {
         savedSpeedLimit = playerSpeedLimit;
-        fallTimer = 0;
-        bhopTimer = 0;
-        cameraTransform = referenceDataAccess.cameraReference;
-        canJump = true;
         manoRigidbody = GetComponent<Rigidbody>();
-        areaCheckAccess = GetComponent<AreaCheckScript>();
-    }
-    public void JumpReset()
-    {
-        if (jumpCoroutine != null)
-        {
-            StopCoroutine(jumpCoroutine);
-        }
 
-        jumpCoroutine = null;
-        canJump = true;
-    }
-    private void GetInputs()
-    {
-        horizontalInputFloat = Input.GetAxisRaw("Horizontal");
-        verticalInputFloat = Input.GetAxisRaw("Vertical");
+        toggle.action.started += Toggle;
     }
 
     private void Update()
     {
-        Vector3 debugVelocity = new Vector3(manoRigidbody.linearVelocity.x, 0, manoRigidbody.linearVelocity.z);
-        debugFloat = debugVelocity.magnitude;
-        debugVector = manoRigidbody.linearVelocity;
+        //Vector3 debugVelocity = new Vector3(manoRigidbody.linearVelocity.x, 0, manoRigidbody.linearVelocity.z);
+        //GetInputs();
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            {
-                if (canJump && canJumpAC)
-                {
-                    if ((isGrounded) || (!isGrounded && coyoteBool))
-                    {
-                        Jump(transform.up);
-                    }
-                }
-            }
-        }
-        else
-        {
-            bhopTimer = 0;
-            bhopMultiplier = 1;
-            playerSpeedLimit = savedSpeedLimit;
-        }
+        Vector2 direction = move.action.ReadValue<Vector2>();
+        moveDirection = new Vector3(direction.x, 0, direction.y);
 
-        GetInputs();
+        manoRigidbody.AddForce(moveDirection * playerSpeed);
+
+        //GetInputs();
     }
 
-    void Jump(Vector3 direction)
+    private void GetInputs()
     {
-        canJump = false;
-        canJumpAC = false;
-        //Invoke("EnableJumping", 0.2f);
-        jumpCoroutine = StartCoroutine(EnableJumpingCoroutine());
-        manoRigidbody.linearVelocity = new Vector3(manoRigidbody.linearVelocity.x, 0, manoRigidbody.linearVelocity.z);
-        manoRigidbody.AddForce((direction) * 10000 * playerJumpStrength, ForceMode.Force);
-    }
-    private void FixedUpdate()
-    {
-        {
-            MovingVoid();
-        }
+        //horizontalInputFloat = Input.GetAxisRaw("Horizontal");
+        //verticalInputFloat = Input.GetAxisRaw("Vertical");
 
-        SpeedClamping();
-        if (!isGrounded)
+
+        if (moveDirection.x != 0)
         {
-            fallTimer = fallTimer + Time.fixedDeltaTime;
-            float newGravity = -Mathf.Pow(gravity, fallTimer - gravityDelayValue);
-            manoRigidbody.linearVelocity += new Vector3(0, newGravity, 0);
-            manoRigidbody.linearVelocity = new Vector3(manoRigidbody.linearVelocity.x, Mathf.Clamp(manoRigidbody.linearVelocity.y, -180, 1000), manoRigidbody.linearVelocity.z);
+            Debug.Log("X moving");
         }
-        else
+        if (moveDirection.y != 0)
         {
-            fallTimer = 0;
-        }
-    }
-    private void MovingVoid()
-    {
-        moveDirection = (transform.forward * verticalInputFloat + transform.right * horizontalInputFloat).normalized;
-        horizontalMovementValue = moveDirection.magnitude;
-        moveDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * moveDirection;
-        manoRigidbody.AddForce(moveDirection * playerSpeed * 1000 * bhopMultiplier, ForceMode.Force);
-    }
-    private void SpeedClamping()
-    {
-        Vector3 manoVelocity = new Vector3(manoRigidbody.linearVelocity.x, 0, manoRigidbody.linearVelocity.z);
-        if (manoVelocity.magnitude > playerSpeedLimit)
-        {
-            Vector3 clampedVelocity = manoVelocity.normalized * playerSpeedLimit;
-            manoRigidbody.linearVelocity = new Vector3(clampedVelocity.x, manoRigidbody.linearVelocity.y, clampedVelocity.z);
+            Debug.Log("Y moving");
         }
     }
 
-    public void InvokeCoyoteBoolDisable()
+    private void Toggle(InputAction.CallbackContext obj)
     {
-        Invoke("CoyoteBoolDisable", 0.2f);
-    }
-    private void CoyoteBoolDisable()
-    {
-        coyoteBool = false;
-    }
-
-    public IEnumerator DisableCoyoteCoroutine(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        coyoteBool = false;
-    }
-
-    private void DisableJumping()
-    {
-        canJump = false;
-    }
-    private void EnableJumping()
-    {
-        canJump = true;
-    }
-    private IEnumerator EnableJumpingCoroutine()
-    {
-        yield return new WaitForSeconds(0.2f);
-        canJump = true;
-        jumpCoroutine = null;
-
-    }
-    public void ChangeSpeedLimit(float newSpeedLimit)
-    {
-        playerSpeedLimit = newSpeedLimit;
-    }
+        Debug.Log("Toggle");
+    }    
 }

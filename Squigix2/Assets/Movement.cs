@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
 
 
     public bool isGrounded;
-    public ReferenceData referenceDataAccess;
+    //public ReferenceData referenceDataAccess;
     [SerializeField]
     GameObject myCamera;
 
@@ -40,8 +40,6 @@ public class Movement : MonoBehaviour
     float fallTimer;
     float horizontalMovementValue;
 
-    [SerializeField]
-    float bhopTimer;
     [SerializeField]
     float bhopMultiplier = 1;
 
@@ -65,8 +63,7 @@ public class Movement : MonoBehaviour
     {
         savedSpeedLimit = playerSpeedLimit;
         fallTimer = 0;
-        bhopTimer = 0;
-        cameraTransform = referenceDataAccess.cameraReference;
+        //cameraTransform = referenceDataAccess.cameraReference;
         canJump = true;
         manoRigidbody = GetComponent<Rigidbody>();
         areaCheckAccess = GetComponent<AreaCheckScript>();
@@ -107,7 +104,6 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            bhopTimer = 0;
             bhopMultiplier = 1;
             playerSpeedLimit = savedSpeedLimit;
         }

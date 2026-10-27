@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour
     Coroutine bounceCoroutine;
 
 
-    DeathScript deathScriptAccess;
+    //DeathScript deathScriptAccess;
 
     private void Start()
     {

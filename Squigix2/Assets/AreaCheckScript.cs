@@ -11,7 +11,7 @@ public class AreaCheckScript : MonoBehaviour
     public Transform groundRaycastLocator;
 
     public LayerMask areaCheckLayerMasks;
-    public ReferenceData referenceDataAccess;
+    //public ReferenceData referenceDataAccess;
 
     Vector3 raycastDirection;
 
@@ -45,7 +45,7 @@ public class AreaCheckScript : MonoBehaviour
     {
         groundRaycastLocator.rotation = Quaternion.Euler(new Vector3(0,0,0));
         GroundCheckVoid();
-        referenceDataAccess.playerGroundedLocation = FindGroundPoint();
+        //referenceDataAccess.playerGroundedLocation = FindGroundPoint();
     }
 
     public void ChangeRaycastSourceLocation(float newYpos)
@@ -85,10 +85,10 @@ public class AreaCheckScript : MonoBehaviour
                 StopCoroutine(coyoteCoroutine);
                 coyoteCoroutine = null; 
             }
-            if (DeathScript.isAlive)
+            /*if (DeathScript.isAlive)
             {
                 rigidbodyAccessACS.linearDamping = groundDrag;
-            }
+            }*/
         }
         else
         {
@@ -97,10 +97,10 @@ public class AreaCheckScript : MonoBehaviour
             {
                 coyoteCoroutine = StartCoroutine(movementAccess.DisableCoyoteCoroutine(0.2f));
             }
-            if (DeathScript.isAlive)
+            /*if (DeathScript.isAlive)
             {
                 rigidbodyAccessACS.linearDamping = airDrag;
-            }
+            }*/
         }         
     }
 
