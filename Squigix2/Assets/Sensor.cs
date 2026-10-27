@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Sensor : MonoBehaviour
 {
-    private bool isAwake;
+    private bool isActivated;
+
+    StateManager stateManager;
 
     private void Start()
     {
@@ -11,7 +13,9 @@ public class Sensor : MonoBehaviour
 
     private void Initialize()
     {
+        isActivated = false;
         ObjectList.Sensors.Add(this);
+        stateManager = GetComponentInParent<StateManager>();
     }
 
 
@@ -19,11 +23,18 @@ public class Sensor : MonoBehaviour
     {
         if(inputStatus == true)
         {
-            isAwake = true;
+            isActivated = true;
+            stateManager.ExecuteAwake();
         }
         else
         {
-            isAwake = false;
+            isActivated = false;
+            stateManager.ExecuteAsleep();
         }
+    }
+
+    public bool GetSensorStatus()
+    {
+        return isActivated;
     }
 }

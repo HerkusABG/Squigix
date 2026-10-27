@@ -10,15 +10,23 @@ public class LightRadius : MonoBehaviour
 
     private void Update()
     {
-        int count = 0;
+        //int count = 0;
         foreach(Sensor sensor in ObjectList.Sensors)
         {
             if(MeasureDistance(sensor.transform) <= myRadius)
             {
-                count++;
+                //count++;
+                if (sensor.GetSensorStatus() == false)
+                {
+                    sensor.SetSensorStatus(true);
+                }
+            }
+            else if(sensor.GetSensorStatus())
+            {
+                sensor.SetSensorStatus(false);
             }
         }
-        Debug.Log($"COUNT IS: {count}");
+        //Debug.Log($"COUNT IS: {count}");
     }
 
     private float MeasureDistance(Transform other)

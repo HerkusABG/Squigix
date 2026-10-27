@@ -507,6 +507,8 @@ GameObject:
   - component: {fileID: 781003570}
   - component: {fileID: 781003569}
   - component: {fileID: 781003568}
+  - component: {fileID: 781003573}
+  - component: {fileID: 781003572}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Untagged
@@ -608,6 +610,30 @@ Transform:
   - {fileID: 2085710860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781003572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781003567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618595b6e6d4bb6408873d3db988d4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateManager
+--- !u!114 &781003573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781003567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0104e42e0b9e314da4d634a873488b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
