@@ -13,6 +13,8 @@ public class LightRadius : MonoBehaviour
         //int count = 0;
         foreach(Sensor sensor in ObjectList.Sensors)
         {
+            if (sensor == null) continue;
+            
             if(MeasureDistance(sensor.transform) <= myRadius)
             {
                 //count++;
