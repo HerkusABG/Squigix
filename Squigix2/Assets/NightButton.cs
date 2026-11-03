@@ -13,20 +13,24 @@ public class NightButton : MonoBehaviour
     [HideInInspector]
     public bool isPressed;
 
+    [HideInInspector]
+    public bool isLocked;
+
     public void Initialize()
     {
         animator = GetComponent<Animator>();
         stateManager = GetComponent<StateManager>();
         ButtonManager.AddNightButton(this);
         isPressed = false;
+        isLocked = false;
     }
     private void OnTriggerEnter(Collider other)
     {
         if(stateManager.GetState())
         {
+            ButtonManager.ButtonPressed(id);
             animator.SetBool("isPressed", true);
             isPressed = true;
-            ButtonManager.ButtonPressed(id);
             ButtonManager.PrintButtonStatuses();
         }
     }
@@ -34,5 +38,11 @@ public class NightButton : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //animator.SetBool("isPressed", false);
+    }
+
+    public void ResetButton()
+    {
+        isPressed = false;
+        animator.SetBool("isPressed", false);
     }
 }

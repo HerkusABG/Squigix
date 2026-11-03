@@ -8,6 +8,14 @@ public static class ButtonManager
 
     public static List<Unit> UnitList = new List<Unit>();
 
+    public static LevelManager levelManager;
+
+    private static int previousId = 100;
+
+
+
+    
+
     public static void AddNightButton(NightButton button)
     {
         NightButtons.Add(button);
@@ -26,16 +34,48 @@ public static class ButtonManager
         }
     }
 
+    public static void ResetUnlockedButtons()
+    {
+        Debug.Log("RESETING BUTTONS");
+        foreach (NightButton button in NightButtons)
+        {
+            if(!button.isLocked)
+            {
+                button.ResetButton();
+            }
+        }
+    }
+
     public static void ButtonPressed(int inputId)
     {
         Unit unit = UnitList.Find(x => x.id.Equals(inputId));
-        if (unit.pairStateArray[0] == false)
+        if (inputId == previousId)
         {
-            unit.pairStateArray[0] = true;
+            Debug.Log("good");
+            unit.pairStateArray[1] = true;
+
+            List<NightButton> NightButtonListTemp = new List<NightButton>();
+            NightButtonListTemp = NightButtons.FindAll(x => x.id == inputId);
+
+            foreach(NightButton loopButton in NightButtonListTemp)
+            {
+                loopButton.isLocked = true;
+            }
+
+            Debug.Log("Locking buttons");
+            CheckWinCondition();
+            previousId = 100;
         }
         else
         {
-            unit.pairStateArray[1] = true;
+            Unit oldUnit = UnitList.Find(x => x.id.Equals(previousId));
+            unit.pairStateArray[0] = true;
+
+            previousId = inputId;
+            if (oldUnit == null) return;
+            //oldUnit.pairStateArray[0] = false;
+
+            ResetUnlockedButtons();
         }
     }
 
@@ -46,7 +86,17 @@ public static class ButtonManager
             Debug.Log($"Unit with id {unit.id} is {unit.pairStateArray[0]} and {unit.pairStateArray[1]}");
         }
     }
-    
+
+    public static void CheckWinCondition()
+    {
+        foreach(NightButton button in NightButtons)
+        {
+            Debug.Log($"button with id {button.id} is {button.isLocked}");
+            if (!button.isLocked) return;
+        }
+        Debug.Log("Puzzle solved!");
+        levelManager.RemoveBlockage();
+    }
 }
 
 public class Unit
