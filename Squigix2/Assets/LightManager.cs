@@ -34,5 +34,6 @@ public class LightManager : MonoBehaviour
     {
         Status.ToggleStatus();
         Light.SetActive(Status.IsLightAwake());
+        Radius.enabled = Status.IsLightAwake();
     }
 }

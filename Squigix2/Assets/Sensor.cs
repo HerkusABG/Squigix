@@ -13,7 +13,6 @@ public class Sensor : MonoBehaviour
 
     private void Initialize()
     {
-        Debug.Log("Created sensor1");
         isActivated = false;
         ObjectList.Sensors.Add(this);
         stateManager = GetComponentInParent<StateManager>();
