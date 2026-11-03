@@ -26,6 +26,7 @@ public class NightButton : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"State is {stateManager.GetState()}");
         if(stateManager.GetState())
         {
             ButtonManager.ButtonPressed(id);

@@ -28,7 +28,17 @@ public class LightRadius : MonoBehaviour
                 sensor.SetSensorStatus(false);
             }
         }
-        //Debug.Log($"COUNT IS: {count}");
+    }
+
+    public void TurnOffOutOfDistanceInteractables()
+    {
+        foreach(Sensor sensor in ObjectList.Sensors)
+        {
+            //if (MeasureDistance(sensor.transform) > myRadius)
+            //{
+                sensor.SetSensorStatus(false);
+            //}
+        }
     }
 
     private float MeasureDistance(Transform other)
