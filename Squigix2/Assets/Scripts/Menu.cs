@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-
     [SerializeField]
     GameObject CreditsWindow;
     public void Play()

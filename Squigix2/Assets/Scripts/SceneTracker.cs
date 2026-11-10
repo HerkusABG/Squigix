@@ -7,4 +7,9 @@ public static class SceneTracker
     {
         SceneManager.LoadSceneAsync("SampleScene", LoadSceneMode.Single);
     }
+
+    public static void EndOfDemo()
+    {
+        SceneManager.LoadSceneAsync("EndOfDemo", LoadSceneMode.Single);
+    }
 }
