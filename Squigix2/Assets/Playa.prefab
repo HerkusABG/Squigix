@@ -3489,11 +3489,9 @@ MonoBehaviour:
   debugVector: {x: 0, y: 0, z: 0}
   debugFloat: 0
   isGrounded: 0
-  referenceDataAccess: {fileID: 0}
   myCamera: {fileID: 909502267719749354}
   horizontalInputFloat: 0
   verticalInputFloat: 0
-  bhopTimer: 0
   bhopMultiplier: 1
   canJump: 0
   canJumpAC: 0
@@ -3548,8 +3546,7 @@ MonoBehaviour:
   groundRaycastLocator: {fileID: 9118995571032798646}
   areaCheckLayerMasks:
     serializedVersion: 2
-    m_Bits: 2112
-  referenceDataAccess: {fileID: 0}
+    m_Bits: 64
   groundDrag: 10
   airDrag: 5
   canCheckArea: 0
