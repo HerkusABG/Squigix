@@ -2560,7 +2560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &709321294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,12 +2659,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709321293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.13, y: 2.12, z: 105.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1505880148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732211150
 GameObject:
@@ -4699,6 +4699,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 709321298}
   - {fileID: 1311690342}
   - {fileID: 249536707}
   - {fileID: 628173496}
@@ -5048,6 +5049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   exitBlockage: {fileID: 249536706}
+  exitPortal: {fileID: 709321293}
 --- !u!4 &1815095798
 Transform:
   m_ObjectHideFlags: 0
@@ -6028,4 +6030,3 @@ SceneRoots:
   - {fileID: 1024757947}
   - {fileID: 1815095798}
   - {fileID: 551440486}
-  - {fileID: 709321298}
