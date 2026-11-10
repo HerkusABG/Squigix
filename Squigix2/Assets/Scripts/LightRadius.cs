@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class LightRadius : MonoBehaviour
 {
+
+    //Radius in which objects are affected.
     int myRadius;
     public void Initialize(int radius)
     {
@@ -11,6 +13,9 @@ public class LightRadius : MonoBehaviour
     private void Update()
     {
         //int count = 0;
+
+        //Going through each sensor in the scene and setting it
+        //to AWAKE or ASLEEP based on the range to the lightRadius object.
         foreach(Sensor sensor in ObjectList.Sensors)
         {
             if (sensor == null) continue;
@@ -30,6 +35,7 @@ public class LightRadius : MonoBehaviour
         }
     }
 
+    //If light is turned off, we want to turn off all the interactables, no matter the distance.
     public void TurnOffOutOfDistanceInteractables()
     {
         foreach(Sensor sensor in ObjectList.Sensors)
@@ -41,6 +47,8 @@ public class LightRadius : MonoBehaviour
         }
     }
 
+
+    //Measure distance between the light and a set interactable object.
     private float MeasureDistance(Transform other)
     {
         float distance = Vector3.Distance(transform.position, other.position);
