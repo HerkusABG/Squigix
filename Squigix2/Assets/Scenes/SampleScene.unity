@@ -134,7 +134,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0364416
+      value: -5.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.382572
+      value: 59.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -911,7 +911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.52
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -919,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.84
+      value: 61.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3320,7 +3320,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.35
+      value: 3.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3328,7 +3328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.382572
+      value: 49.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3623,7 +3623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.65
+      value: 50.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3837,7 +3837,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26
+      value: -8.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3845,7 +3845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 67.39
+      value: 54.31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4002,7 +4002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2438d76be54526642ae0a948fd9bdb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NightButton
-  id: 0
+  id: 2
   isPressed: 0
   isLocked: 0
 --- !u!1001 &1256123806
@@ -4363,7 +4363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.12
+      value: 5.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4371,7 +4371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.96
+      value: 61.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4788,7 +4788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2438d76be54526642ae0a948fd9bdb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NightButton
-  id: 0
+  id: 2
   isPressed: 0
   isLocked: 0
 --- !u!1 &1755946571
@@ -4934,7 +4934,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.35
+      value: 7.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4942,7 +4942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.65
+      value: 54.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41fec2a9817ed3c4dad60a76552658f4, type: 3}
       propertyPath: m_LocalRotation.w

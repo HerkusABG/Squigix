@@ -4,10 +4,6 @@ using static UnityEngine.Audio.GeneratorInstance;
 
 public static class ButtonManager
 {
-    //NOT IN A FULLY FUNCTIONAL STATE RIGHT NOW !!!!
-
-
-
     //This class is responsible for managing all the main puzzle of level 1.
     //This means that all the information in regards to the puzzle execution is handled mostly here.
     //Additional code is included in the NightButton class itself, of course.
@@ -88,19 +84,18 @@ public static class ButtonManager
         }
         else
         {
-
             //... , but it turns out it wasn't, reset the puzzle memory accordingly.
             Unit oldUnit = UnitList.Find(x => x.id.Equals(previousId));
             unit.pairStateArray[0] = true;
+
+            //Reset all buttons which weren't pressed in the correct order.
+            ResetUnlockedButtons();
 
             previousId = inputId;
 
             //Fail early
             if (oldUnit == null) return;
             oldUnit.pairStateArray[0] = false;
-
-            //Reset all buttons which weren't pressed in the correct order.
-            ResetUnlockedButtons();
         }
     }
 
