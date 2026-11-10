@@ -4,6 +4,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField]
     GameObject CreditsWindow;
+
     public void Play()
     {
         SceneTracker.Level1();
