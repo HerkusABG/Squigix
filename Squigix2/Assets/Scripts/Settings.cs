@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-
     [SerializeField]
     AudioPlayer audioPlayer;
 
@@ -13,12 +12,17 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        MusicChange();
+        Initialize();
     }
-    public void MusicChange()
+
+    private void Initialize()
     {
-        Debug.Log("Music is changed");
-        Slider musicSlider = SliderList[0].GetComponent<Slider>();
-        audioPlayer.ChangeVolume((int)musicSlider.value, (int)musicSlider.maxValue);
+
+    }
+
+    public void AudioChange(int audioType)
+    {
+        Slider slider = SliderList[audioType].GetComponent<Slider>();
+        audioPlayer.ChangeVolume((int)slider.value, (int)slider.maxValue, (AudioType)audioType);
     }
 }

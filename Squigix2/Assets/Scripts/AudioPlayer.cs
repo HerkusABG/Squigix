@@ -1,19 +1,40 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
-    AudioSource musicSource;
+    List<AudioSource> AudioList = new List<AudioSource>();
     void Start()
     {
-        musicSource.Play();
-        Debug.Log(musicSource.volume);
+        foreach (AudioSource source in AudioList)
+        {
+            source.Play();
+        }
     }
 
-    public void ChangeVolume(int input, int maxValue)
+    public void ChangeVolume(int input, int maxValue, AudioType audioType)
     {
         float final = ((float)input / (float)maxValue);
-        musicSource.volume = final;
+        if (audioType == AudioType.Music)
+        {
+            AudioList[(int)audioType].volume = final;
+        }
+        else if(audioType == AudioType.Ambience)
+        {
+            AudioList[(int)audioType].volume = final;
+        }
+        else if (audioType == AudioType.SFX)
+        {
+            //insert SFX code here
+        }
     }
+}
+
+public enum AudioType
+{
+    Music,
+    Ambience,
+    SFX
 }

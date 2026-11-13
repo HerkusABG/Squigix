@@ -5,6 +5,9 @@ public class Menu : MonoBehaviour
     [SerializeField]
     GameObject CreditsWindow;
 
+    [SerializeField]
+    GameObject SettingsWindow;
+
     public void Play()
     {
         SceneTracker.Level1();
@@ -12,12 +15,11 @@ public class Menu : MonoBehaviour
 
     public void Settings()
     {
-        Debug.Log("SETTINGS");
+        SettingsWindow.SetActive(true);
     }
 
     public void Credits()
     {
-        Debug.Log("CREDITS");
         CreditsWindow.SetActive(true);
     }
 
@@ -25,7 +27,11 @@ public class Menu : MonoBehaviour
     {
         CreditsWindow.SetActive(false);
     }
-    
+
+    public void ExitSettings()
+    {
+        SettingsWindow.SetActive(false);
+    }
     public void Exit()
     {
         Application.Quit();
