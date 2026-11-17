@@ -54,4 +54,9 @@ public class LightManager : MonoBehaviour
         }
         Radius.enabled = Status.IsLightAwake();
     }
+
+    void OnDestroy()
+    {
+        toggle.action.started -= Toggle;
+    }
 }
