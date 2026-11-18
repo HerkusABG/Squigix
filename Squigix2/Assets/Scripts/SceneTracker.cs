@@ -12,4 +12,9 @@ public static class SceneTracker
     {
         SceneManager.LoadSceneAsync("EndOfDemo", LoadSceneMode.Single);
     }
+
+    public static void Menu()
+    {
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+    }
 }
