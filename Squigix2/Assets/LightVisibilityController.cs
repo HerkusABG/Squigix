@@ -28,7 +28,7 @@ public class LightVisibilityController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (phosphorusRenderers.Count <= 0 || targetRenderer == null)
+        if (phosphorusRenderers.Count <= 0 || targetLight == null)
             return;
 
         foreach(GameObject loopPhosphorus in phosphorusObjects)
@@ -70,11 +70,15 @@ public class LightVisibilityController : MonoBehaviour
                 Mathf.Cos(inner * Mathf.Deg2Rad)
             );
 
-            if(loopPhosphorus.TryGetComponent<ColorChanger>(out ColorChanger changer))
+            if (loopPhosphorus.TryGetComponent<ColorChanger>(out ColorChanger changer))
             {
+                Debug.Log("Found");
                 properties.SetColor("_BaseColor", changer.GetColor());
             }
-            
+            else
+            {
+                Debug.Log("NOT FOUND");
+            }
 
             renderer.SetPropertyBlock(properties);
         }
