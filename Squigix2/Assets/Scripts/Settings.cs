@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Settings : MonoBehaviour
+public class Settings : InitComponent
 {
     [SerializeField]
     AudioPlayer audioPlayer;
@@ -18,15 +18,9 @@ public class Settings : MonoBehaviour
 
     private bool isFullscreenActive;
     
-
-    private void Start()
+    public override void Initialize()
     {
         isFullscreenActive = true;
-        Initialize();
-    }
-
-    private void Initialize()
-    {
     }
 
     public void AudioChange(int audioType)

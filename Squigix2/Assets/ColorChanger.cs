@@ -4,7 +4,7 @@ public class ColorChanger : MonoBehaviour
 {
     [SerializeField]
     private Color individualColor;
-    void Start()
+    public void Initialize()
     {
         GetComponent<Renderer>().material.color = individualColor;
     }

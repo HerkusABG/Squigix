@@ -1,17 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlayer : MonoBehaviour
+public class AudioPlayer : InitComponent
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
     List<AudioSource> AudioList = new List<AudioSource>();
 
-    private void Start()
-    {
-        Initialize();
-    }
-    private void Initialize()
+    public override void Initialize()
     {
         foreach (AudioSource source in AudioList)
         {

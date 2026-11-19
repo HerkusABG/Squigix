@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class Sensor : InitComponent
+public class Sensor : MonoBehaviour
 {
-
     private bool isActivated;
-
     StateManager stateManager;
 
-    public new void Initialize()
+    public void Initialize()
     {
         //Making sure the sensor isn't activated.
         isActivated = false;

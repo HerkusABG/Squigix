@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightVisibilityController : MonoBehaviour
+public class LightVisibilityController : InitComponent
 {
     [SerializeField] private Light targetLight;
     [SerializeField] private Renderer targetRenderer;
@@ -12,7 +12,7 @@ public class LightVisibilityController : MonoBehaviour
     GameObject[] phosphorusObjects;
     List<Renderer> phosphorusRenderers = new List<Renderer>();
 
-    private void Awake()
+    public override void Initialize()
     {
         properties = new MaterialPropertyBlock();
 
@@ -22,8 +22,6 @@ public class LightVisibilityController : MonoBehaviour
         {
             phosphorusRenderers.Add(tagObject.GetComponent<Renderer>());
         }
-
-        Debug.Log($"Found {phosphorusObjects.Length} objects");
     }
 
     private void LateUpdate()
@@ -75,8 +73,6 @@ public class LightVisibilityController : MonoBehaviour
 
             renderer.SetPropertyBlock(properties);
         }
-
-        
     }
 }
 

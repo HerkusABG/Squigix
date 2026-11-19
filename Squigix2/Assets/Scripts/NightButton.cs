@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class NightButton : InitComponent
 {
-
     Animator animator;
-
     StateManager stateManager;
 
     [SerializeField]
@@ -20,6 +18,7 @@ public class NightButton : InitComponent
     {
         animator = GetComponent<Animator>();
         stateManager = GetComponent<StateManager>();
+        GetComponentInChildren<ColorChanger>().Initialize();
         ButtonManager.AddNightButton(this);
         isPressed = false;
         isLocked = false;

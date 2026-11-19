@@ -25,7 +25,7 @@ public class Move : InitComponent
     InputActionReference move;
 
 
-    public void Start()
+    public override void Initialize()
     {
         manoRigidbody = GetComponent<Rigidbody>();
     }
