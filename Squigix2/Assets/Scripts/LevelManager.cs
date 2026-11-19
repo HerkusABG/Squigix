@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : InitComponent
 {
 
     [SerializeField]
@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     GameObject exitPortal;
-    public void Start()
+    public override void Initialize()
     {
         ButtonManager.levelManager = this;
     }

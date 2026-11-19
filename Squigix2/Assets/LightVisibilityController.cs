@@ -34,8 +34,6 @@ public class LightVisibilityController : MonoBehaviour
         foreach(GameObject loopPhosphorus in phosphorusObjects)
         {
             Renderer renderer = loopPhosphorus.GetComponent<Renderer>();
-            
-
 
             renderer.GetPropertyBlock(properties);
 
@@ -72,12 +70,7 @@ public class LightVisibilityController : MonoBehaviour
 
             if (loopPhosphorus.TryGetComponent<ColorChanger>(out ColorChanger changer))
             {
-                Debug.Log("Found");
                 properties.SetColor("_BaseColor", changer.GetColor());
-            }
-            else
-            {
-                Debug.Log("NOT FOUND");
             }
 
             renderer.SetPropertyBlock(properties);

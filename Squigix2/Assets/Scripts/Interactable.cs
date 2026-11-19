@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : InitComponent
 {
-    public void Start()
+    public override void Initialize()
     {
         StateManager OSM = GetComponent<StateManager>();
         OSM.Initialize();
@@ -12,6 +12,23 @@ public class Interactable : MonoBehaviour
         if(nightButton != null)
         {
             nightButton.Initialize();
+        }
+        Sensor sensor = GetComponentInChildren<Sensor>();
+        if(sensor != null)
+        {
+            sensor.Initialize();
+        }
+        else
+        {
+            sensor = GetComponent<Sensor>();
+            if (sensor != null)
+            {
+                sensor.Initialize();
+            }
+            else
+            {
+                Debug.Log("Sensor was NULL!!");
+            }
         }
     }
 }

@@ -6,7 +6,12 @@ public class AudioPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
     List<AudioSource> AudioList = new List<AudioSource>();
-    void Start()
+
+    private void Start()
+    {
+        Initialize();
+    }
+    private void Initialize()
     {
         foreach (AudioSource source in AudioList)
         {

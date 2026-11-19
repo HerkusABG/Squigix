@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
-public class LightManager : MonoBehaviour
+public class LightManager : InitComponent
 {
     //Class used for storing all the relevant information about light.
     //Does NOT handle the activation of interactables.
@@ -23,12 +23,7 @@ public class LightManager : MonoBehaviour
     //The lightRadius class used for actual tracking of interactables.
     LightRadius Radius;
 
-    private void Start()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
+    public override void Initialize()
     {
         //Subscribing to the space bar press so that we can toggle the light.
         toggle.action.started += Toggle;

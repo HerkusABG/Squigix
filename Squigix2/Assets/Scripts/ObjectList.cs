@@ -8,4 +8,9 @@ public static class ObjectList
     public static List<Sensor> Sensors = new List<Sensor>();
 
     public static ExitPortal exitPortal;
+
+    public static void GUGA()
+    {
+        Debug.Log("GUGA");
+    }
 }

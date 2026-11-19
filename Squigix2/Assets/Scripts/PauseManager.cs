@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PauseManager : MonoBehaviour
+public class PauseManager : InitComponent
 {
 
     [SerializeField]
@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused;
 
-    private void Start()
+    public override void Initialize()
     {
         isPaused = false;
         Time.timeScale = 1;

@@ -6,7 +6,7 @@ using UnityEditor;
 using System;
 using UnityEngine.InputSystem;
 
-public class Move : MonoBehaviour
+public class Move : InitComponent
 {
 
 
@@ -25,7 +25,7 @@ public class Move : MonoBehaviour
     InputActionReference move;
 
 
-    private void Start()
+    public void Start()
     {
         manoRigidbody = GetComponent<Rigidbody>();
     }
@@ -39,6 +39,7 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         manoRigidbody.AddForce(moveDirection * playerSpeed);
     }
 }

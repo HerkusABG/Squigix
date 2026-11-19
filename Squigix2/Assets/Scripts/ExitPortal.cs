@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitPortal : MonoBehaviour
+public class ExitPortal : InitComponent
 {
-    private void Start()
+    public void UniqueInitialize()
     {
         ObjectList.exitPortal = this;
-        Debug.Log("Assigning new");
     }
 
     public void ExecuteExit()

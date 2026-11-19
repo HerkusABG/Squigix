@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NightButton : MonoBehaviour
+public class NightButton : InitComponent
 {
 
     Animator animator;
@@ -16,7 +16,7 @@ public class NightButton : MonoBehaviour
     [HideInInspector]
     public bool isLocked;
 
-    public void Initialize()
+    public new void Initialize()
     {
         animator = GetComponent<Animator>();
         stateManager = GetComponent<StateManager>();
