@@ -9,8 +9,5 @@ public static class ObjectList
 
     public static ExitPortal exitPortal;
 
-    public static void GUGA()
-    {
-        Debug.Log("GUGA");
-    }
+    public static Move SquigixMove;
 }

@@ -25,6 +25,7 @@ public class LightVisibilityController : InitComponent
         {
             phosphorusRenderers.Add(tagObject.GetComponent<Renderer>());
         }
+
     }
 
     private void LateUpdate()

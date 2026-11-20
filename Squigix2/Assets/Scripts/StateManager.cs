@@ -38,7 +38,10 @@ public class StateManager : MonoBehaviour
         if(ColourObject != null)
         {
             ColourObject.GetComponent<MeshRenderer>().material.color = Color.white;
-            
+        }
+        if(GetComponent<NightButton>() == true)
+        {
+            GetComponent<NightButton>().DistanceBasedToggle();
         }
     }
 

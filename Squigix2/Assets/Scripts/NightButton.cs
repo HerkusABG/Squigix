@@ -33,17 +33,29 @@ public class NightButton : InitComponent
     private void OnTriggerEnter(Collider other)
     {
         if (isLocked || isPressed) return;
-        Debug.Log($"State is {stateManager.GetState()}");
         if(stateManager.GetState())
         {
-            ButtonManager.ButtonPressed(id);
-            animator.SetBool("isPressed", true);
-            isPressed = true;
-            if (meshCollider != null)
-            {
-                meshCollider.enabled = false;
-                Debug.Log("disabling collider");
-            }
+            ButtonPressExecute();
+        }
+    }
+
+    private void ButtonPressExecute()
+    {
+        ButtonManager.ButtonPressed(id);
+        animator.SetBool("isPressed", true);
+        isPressed = true;
+        if (meshCollider != null)
+        {
+            meshCollider.enabled = false;
+            Debug.Log("disabling collider");
+        }
+    }
+
+    public void DistanceBasedToggle()
+    {
+        if(Vector3.Distance(transform.position, ObjectList.SquigixMove.transform.position) <= 2)
+        {
+            ButtonPressExecute();
         }
     }
 

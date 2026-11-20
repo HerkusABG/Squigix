@@ -33,6 +33,7 @@ public class Move : InitComponent
     public override void Initialize()
     {
         manoRigidbody = GetComponent<Rigidbody>();
+        ObjectList.SquigixMove = this;
     }
 
     private void Update()
