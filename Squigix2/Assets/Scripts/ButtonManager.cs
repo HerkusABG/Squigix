@@ -99,13 +99,6 @@ public static class ButtonManager
         }
     }
 
-    public static void PrintButtonStatuses()
-    {
-        foreach (Unit unit in UnitList)
-        {
-            Debug.Log($"Unit with id {unit.id} is {unit.pairStateArray[0]} and {unit.pairStateArray[1]}");
-        }
-    }
 
     public static void CheckWinCondition()
     {

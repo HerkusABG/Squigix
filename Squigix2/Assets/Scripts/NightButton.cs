@@ -17,6 +17,10 @@ public class NightButton : InitComponent
     public new void Initialize()
     {
         animator = GetComponent<Animator>();
+        /*if(animator == null)
+        {
+            Debug.Log("NULL ANIMATOR");
+        }*/
         stateManager = GetComponent<StateManager>();
         GetComponentInChildren<ColorChanger>().Initialize();
         ButtonManager.AddNightButton(this);
@@ -32,7 +36,6 @@ public class NightButton : InitComponent
             ButtonManager.ButtonPressed(id);
             animator.SetBool("isPressed", true);
             isPressed = true;
-            ButtonManager.PrintButtonStatuses();
         }
     }
 
