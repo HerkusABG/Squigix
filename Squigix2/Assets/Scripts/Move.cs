@@ -24,6 +24,11 @@ public class Move : InitComponent
     [SerializeField]
     InputActionReference move;
 
+    [SerializeField]
+    Transform Mesh;
+
+    Quaternion lastRotation;
+
 
     public override void Initialize()
     {
@@ -35,6 +40,11 @@ public class Move : InitComponent
         //Reading the inputs and applying it as movement force to SQUIGIX
         Vector2 direction = move.action.ReadValue<Vector2>();
         moveDirection = new Vector3(direction.x, 0, direction.y);
+        if(direction.x != 0 || direction.y != 0)
+        {
+            lastRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+        }
+        Mesh.rotation = lastRotation;
     }
 
     private void FixedUpdate()
