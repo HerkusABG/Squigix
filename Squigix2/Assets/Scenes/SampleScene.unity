@@ -17729,6 +17729,7 @@ GameObject:
   - component: {fileID: 1024757950}
   - component: {fileID: 1024757951}
   - component: {fileID: 1024757952}
+  - component: {fileID: 1024757953}
   m_Layer: 6
   m_Name: Squigix
   m_TagString: Untagged
@@ -17770,7 +17771,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024757942}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4703324bfec0e154aa98dc6bed50d31a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -17785,7 +17786,7 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.56, z: -0.00000008940697}
 --- !u!4 &1024757947
 Transform:
   m_ObjectHideFlags: 0
@@ -17888,6 +17889,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   interact: {fileID: 4644442657202073750, guid: 88f06eb2ad54ce44f9eba17f965cddbd, type: 3}
+--- !u!135 &1024757953
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024757942}
+  m_Material: {fileID: 13400000, guid: f7f3d7fb2f3cbad4a93ca23f0513d348, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25
+  m_Center: {x: 0, y: -1.02, z: 0}
 --- !u!1 &1027314633
 GameObject:
   m_ObjectHideFlags: 0
