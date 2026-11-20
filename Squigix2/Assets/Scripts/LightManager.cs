@@ -33,7 +33,7 @@ public class LightManager : InitComponent
 
         //Grabbing the light radius and initializing it.
         Radius = GetComponent<LightRadius>();
-        Radius.Initialize(5);
+        Radius.Initialize(6);
     }
 
 
@@ -48,6 +48,11 @@ public class LightManager : InitComponent
             Radius.TurnOffOutOfDistanceInteractables();
         }
         Radius.enabled = Status.IsLightAwake();
+    }
+
+    public bool IsLightAwakeParent()
+    {
+        return Status.IsLightAwake();
     }
 
     void OnDestroy()

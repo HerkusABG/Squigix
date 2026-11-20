@@ -14,6 +14,8 @@ public class NightButton : InitComponent
     [HideInInspector]
     public bool isLocked;
 
+    private MeshCollider meshCollider;
+
     public new void Initialize()
     {
         animator = GetComponent<Animator>();
@@ -22,6 +24,7 @@ public class NightButton : InitComponent
             Debug.Log("NULL ANIMATOR");
         }*/
         stateManager = GetComponent<StateManager>();
+        meshCollider = GetComponentInChildren<MeshCollider>();
         GetComponentInChildren<ColorChanger>().Initialize();
         ButtonManager.AddNightButton(this);
         isPressed = false;
@@ -36,6 +39,11 @@ public class NightButton : InitComponent
             ButtonManager.ButtonPressed(id);
             animator.SetBool("isPressed", true);
             isPressed = true;
+            if (meshCollider != null)
+            {
+                meshCollider.enabled = false;
+                Debug.Log("disabling collider");
+            }
         }
     }
 
@@ -48,5 +56,10 @@ public class NightButton : InitComponent
     {
         isPressed = false;
         animator.SetBool("isPressed", false);
+        if (meshCollider != null)
+        {
+            meshCollider.enabled = true;
+            Debug.Log("enabling collider");
+        }
     }
 }

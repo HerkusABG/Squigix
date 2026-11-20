@@ -7,6 +7,9 @@ public class LightVisibilityController : InitComponent
     [SerializeField] private Light targetLight;
     [SerializeField] private Renderer targetRenderer;
 
+    [SerializeField]
+    private LightManager lightManager;
+
     private MaterialPropertyBlock properties;
 
     GameObject[] phosphorusObjects;
@@ -29,16 +32,29 @@ public class LightVisibilityController : InitComponent
         if (phosphorusRenderers.Count <= 0 || targetLight == null)
             return;
 
-        foreach(GameObject loopPhosphorus in phosphorusObjects)
+        bool isLightAwake = lightManager.IsLightAwakeParent();
+
+        foreach (GameObject loopPhosphorus in phosphorusObjects)
         {
             Renderer renderer = loopPhosphorus.GetComponent<Renderer>();
 
             renderer.GetPropertyBlock(properties);
 
-            properties.SetVector(
+            if(isLightAwake)
+            {
+                properties.SetVector(
                 "_LightPosition",
                 targetLight.transform.position
-            );
+                 );
+            }
+            else
+            {
+                properties.SetVector(
+                "_LightPosition",
+                new Vector3(1000, 10000, 1000)
+                 );
+            }
+            
 
             properties.SetVector(
                 "_LightDirection",
