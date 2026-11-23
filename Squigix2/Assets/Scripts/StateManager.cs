@@ -25,6 +25,10 @@ public class StateManager : MonoBehaviour
         //Grabbing the animator, entering asleep state.
         animator = AnimatedObject.GetComponent<Animator>();
         ExecuteAsleep();
+        if (ColourObject != null)
+        {
+            ColourObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        }
     }
     public void ExecuteAwake()
     {
@@ -34,10 +38,6 @@ public class StateManager : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("isAwake", true);
-        }
-        if(ColourObject != null)
-        {
-            ColourObject.GetComponent<MeshRenderer>().material.color = Color.white;
         }
         if(GetComponent<NightButton>() == true)
         {
@@ -53,10 +53,6 @@ public class StateManager : MonoBehaviour
         if(animator != null)
         {
             animator.SetBool("isAwake", false);
-        }
-        if (ColourObject != null)
-        {
-            ColourObject.GetComponent<MeshRenderer>().material.color = buttonColour;
         }
     }
 
