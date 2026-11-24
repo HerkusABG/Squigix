@@ -10,4 +10,6 @@ public static class ObjectList
     public static ExitPortal exitPortal;
 
     public static Move SquigixMove;
+
+    public static InfoScreen infoScreen;
 }
