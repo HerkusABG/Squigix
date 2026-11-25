@@ -43,7 +43,7 @@ public class LightManager : InitComponent
         //Just toggling the light, pretty straightforward.
         Status.ToggleStatus();
         Light.SetActive(Status.IsLightAwake());
-        
+        SFXPlayer.PlaySFX("Lightswitch");
         if (!Status.IsLightAwake())
         {
             Radius.TurnOffOutOfDistanceInteractables();

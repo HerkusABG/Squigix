@@ -14,6 +14,9 @@ public class StateManager : MonoBehaviour
     [SerializeField]
     Color buttonColour;
 
+    [SerializeField]
+    string audioKey;
+
     //boolean for tracking whether the interactable is awake.
     [HideInInspector]
     bool isAwake;
@@ -39,9 +42,14 @@ public class StateManager : MonoBehaviour
         {
             animator.SetBool("isAwake", true);
         }
-        if(GetComponent<NightButton>() == true)
+        if (GetComponent<NightButton>() == true)
         {
             GetComponent<NightButton>().DistanceBasedToggle();
+        }
+        if (audioKey != "")
+        {
+            if (audioKey == null) return;
+            SFXPlayer.PlaySFX(audioKey);
         }
     }
 

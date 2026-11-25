@@ -7,6 +7,8 @@ public class AudioPlayer : InitComponent
     [SerializeField]
     List<AudioSource> AudioList = new List<AudioSource>();
 
+    [SerializeField]
+    AudioClipDatabase audioClipDatabase;
     public override void Initialize()
     {
         foreach (AudioSource source in AudioList)
@@ -29,6 +31,7 @@ public class AudioPlayer : InitComponent
         else if (audioType == AudioType.SFX)
         {
             //insert SFX code here
+            audioClipDatabase.ChangeSFXVolume(final);
         }
     }
 }
