@@ -39,6 +39,7 @@ public class NightButton : InitComponent
     {
         ButtonManager.ButtonPressed(id);
         animator.SetBool("isPressed", true);
+        SFXPlayer.PlaySFX("Nightbutton");
         isPressed = true;
         if (meshCollider != null)
         {

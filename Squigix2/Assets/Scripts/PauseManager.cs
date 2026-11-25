@@ -30,17 +30,27 @@ public class PauseManager : InitComponent
     {
         if(isPaused)
         {
-            RootUI.SetActive(false);
-            PauseWindow.SetActive(false);
-            Time.timeScale = 1;
+            if (SettingsWindow.activeSelf)
+            {
+                SettingsWindow.SetActive(false);
+                PauseWindow.SetActive(true);
+            }
+            else
+            {
+                RootUI.SetActive(false);
+                PauseWindow.SetActive(false);
+                Time.timeScale = 1;
+                isPaused = false;
+            }
         }
         else
         {
             RootUI.SetActive(true);
             PauseWindow.SetActive(true);
             Time.timeScale = 0;
+            isPaused = true;
         }
-        isPaused = !isPaused;
+        
     }
 
     public void Continue()
