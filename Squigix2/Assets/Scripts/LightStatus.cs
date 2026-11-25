@@ -30,6 +30,11 @@ public class LightStatus
         return CurrentLightState;
     }
 
+    public void SetStatus(bool status)
+    {
+        isAwake = status;
+    }
+
     public bool IsLightAwake()
     {
         return isAwake;

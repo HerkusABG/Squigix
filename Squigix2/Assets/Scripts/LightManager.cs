@@ -34,6 +34,7 @@ public class LightManager : InitComponent
         //Grabbing the light radius and initializing it.
         Radius = GetComponent<LightRadius>();
         Radius.Initialize(5);
+        Radius.enabled = false;
     }
 
 
