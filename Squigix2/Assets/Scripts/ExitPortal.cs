@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class ExitPortal : InitComponent
 {
+    [SerializeField]
+    LevelEnd levelEnd;
     public void UniqueInitialize()
     {
         ObjectList.exitPortal = this;
@@ -10,6 +12,9 @@ public class ExitPortal : InitComponent
 
     public void ExecuteExit()
     {
-        SceneTracker.EndOfDemo();
+        levelEnd.LoadLevelEnd();
+        //SceneTracker.EndOfDemo();
     }
+
+    
 }

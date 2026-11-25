@@ -19,10 +19,6 @@ public class NightButton : InitComponent
     public new void Initialize()
     {
         animator = GetComponent<Animator>();
-        /*if(animator == null)
-        {
-            Debug.Log("NULL ANIMATOR");
-        }*/
         stateManager = GetComponent<StateManager>();
         meshCollider = GetComponentInChildren<MeshCollider>();
         GetComponentInChildren<ColorChanger>().Initialize();

@@ -8,6 +8,8 @@ public class Initializer : MonoBehaviour
     {
         exitPortal.UniqueInitialize();
 
+        ButtonManager.NightButtons.Clear();
+
         InitComponent[] initComponents = FindObjectsByType<InitComponent>();
         foreach (var component in initComponents)
         {
