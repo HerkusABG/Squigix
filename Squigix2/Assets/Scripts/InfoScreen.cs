@@ -21,6 +21,7 @@ public class InfoScreen : InitComponent
 
     [SerializeField]
     InputActionReference skipTextInput;
+    private List<Coroutine> Coroutines = new List<Coroutine>();  
 
     public override void Initialize()
     {
@@ -28,32 +29,37 @@ public class InfoScreen : InitComponent
         ObjectList.infoScreen = this;
 
         skipTextInput.action.started += HideInfoScreen;
+
+        flavourText.color = new Color(flavourText.color.r, flavourText.color.g, flavourText.color.b, 0);
     }
 
     public void PrintFlavour(string inputText)
     {
         flavourText.text = inputText;
-        StopAllCoroutines();
-        //StartCoroutine(BlendCoroutine(0.01f, flavourText));
+        StartCoroutine(BlendCoroutine(0.01f, 0.2f, flavourText, true));
+        StartCoroutine(WaitAndHide(0.01f, 0.4f, flavourText));
     }
 
     public void InfoScreenPrint(string inputText)
     {
         infoText.text = inputText;
-        StopAllCoroutines();
-        StartCoroutine(BlendCoroutine(0.01f, 0.75f, infoScreenImage, true));
-        StartCoroutine(BlendCoroutine(0.01f, 0.75f, infoText, true));
-        StartCoroutine(SkipText());
+        //StopAllCoroutines();
+        StopSelectCoroutines();
+        Coroutine imageCoroutine = StartCoroutine(BlendCoroutine(0.01f, 0.75f, infoScreenImage, true));
+        Coroutine infoTextCoroutine = StartCoroutine(BlendCoroutine(0.01f, 0.75f, infoText, true));
+        Coroutine skipTextCoroutine = StartCoroutine(SkipText());
+
+        Coroutines.Add(imageCoroutine);
+        Coroutines.Add(infoTextCoroutine);
+        Coroutines.Add(skipTextCoroutine);
     }
 
     private void HideInfoScreen(InputAction.CallbackContext obj)
     {
-        //infoText.text = "Closing";
-        StopAllCoroutines();
+        StopSelectCoroutines();
         infoScreenImage.color = new Color(infoScreenImage.color.r, infoScreenImage.color.g, infoScreenImage.color.b, 0);
         infoText.color = new Color(infoText.color.r, infoText.color.g, infoText.color.b, 0);
-        //StartCoroutine(BlendCoroutine(0.01f, 0.1f, infoScreenImage, false));
-        //StartCoroutine(BlendCoroutine(0.01f, 0.1f, infoText, false));
+        skipText.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, 0);
     }
     private IEnumerator BlendCoroutine(float waitLength, float fullLength, Image inputImage, bool fadingIn)
     {
@@ -125,7 +131,25 @@ public class InfoScreen : InitComponent
         skipText.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, 0);
         yield return new WaitForSeconds(3);
 
-        StartCoroutine(BlendCoroutine(0.01f, 0.3f, skipText, true));
+        Coroutine skipTextCoroutine = StartCoroutine(BlendCoroutine(0.01f, 0.3f, skipText, true));
+        Coroutines.Add(skipTextCoroutine);
+    }
+
+    private IEnumerator WaitAndHide(float waitLength, float fullLength, TextMeshProUGUI textMesh)
+    {
+        yield return new WaitForSeconds(3);
+        textMesh.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, 1);
+
+        StartCoroutine(BlendCoroutine(waitLength, fullLength, textMesh, false));
+    }
+
+    private void StopSelectCoroutines()
+    {
+        foreach(Coroutine coroutine in Coroutines)
+        {
+            StopCoroutine(coroutine);
+        }
+        Coroutines.Clear();
     }
 
     void OnDestroy()

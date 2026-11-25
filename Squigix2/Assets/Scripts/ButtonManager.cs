@@ -107,7 +107,7 @@ public static class ButtonManager
             Debug.Log($"button with id {button.id} is {button.isLocked}");
             if (!button.isLocked) return;
         }
-        ObjectList.infoScreen.InfoScreenPrint("You hear a noise ahead of you.");
+        ObjectList.infoScreen.PrintFlavour("You hear a noise ahead of you.");
         Debug.Log("Puzzle solved!");
         levelManager.RemoveBlockage();
     }
