@@ -108,8 +108,8 @@ public static class ButtonManager
             if (!button.isLocked) return;
         }
         ObjectList.infoScreen.PrintFlavour("You hear a noise ahead of you.");
-        Debug.Log("Puzzle solved!");
         levelManager.RemoveBlockage();
+        SFXPlayer.PlaySFX("Slime");
     }
 }
 

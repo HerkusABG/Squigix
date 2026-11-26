@@ -45,6 +45,7 @@ public class PauseManager : InitComponent
         }
         else
         {
+            SFXPlayer.PlaySFX("Pause");
             RootUI.SetActive(true);
             PauseWindow.SetActive(true);
             Time.timeScale = 0;
@@ -57,6 +58,7 @@ public class PauseManager : InitComponent
     {
         RootUI.SetActive(false);
         Time.timeScale = 1;
+        isPaused = false;
     }
 
     public void Settings()

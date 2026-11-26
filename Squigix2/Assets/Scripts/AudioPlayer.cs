@@ -9,6 +9,8 @@ public class AudioPlayer : InitComponent
 
     [SerializeField]
     AudioClipDatabase audioClipDatabase;
+
+
     public override void Initialize()
     {
         foreach (AudioSource source in AudioList)
@@ -33,6 +35,11 @@ public class AudioPlayer : InitComponent
             //insert SFX code here
             audioClipDatabase.ChangeSFXVolume(final);
         }
+    }
+
+    public void UISound()
+    {
+        SFXPlayer.PlaySFX("UI");
     }
 }
 

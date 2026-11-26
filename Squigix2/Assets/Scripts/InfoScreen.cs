@@ -42,6 +42,7 @@ public class InfoScreen : InitComponent
 
     public void InfoScreenPrint(string inputText)
     {
+        SFXPlayer.PlaySFX("NotifOpen");
         infoText.text = inputText;
         StopSelectCoroutines();
         Coroutine imageCoroutine = StartCoroutine(Interpolator.BlendCoroutine(0.01f, 0.75f, infoScreenImage, true));
@@ -55,6 +56,8 @@ public class InfoScreen : InitComponent
 
     private void HideInfoScreen(InputAction.CallbackContext obj)
     {
+        SFXPlayer.PlaySFX("NotifClose");
+        SFXPlayer.StopSFX("NotifOpen");
         StopSelectCoroutines();
         infoScreenImage.color = new Color(infoScreenImage.color.r, infoScreenImage.color.g, infoScreenImage.color.b, 0);
         infoText.color = new Color(infoText.color.r, infoText.color.g, infoText.color.b, 0);

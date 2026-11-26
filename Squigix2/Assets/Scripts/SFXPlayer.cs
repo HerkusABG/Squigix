@@ -10,6 +10,11 @@ public static class SFXPlayer
 
     public static void PlaySFX(string audioKey)
     {
-        database.Database[audioKey].Play();
+        database.Database[audioKey].Play(0);
+    }
+
+    public static void StopSFX(string audioKey)
+    {
+        database.Database[audioKey].Stop();
     }
 }
