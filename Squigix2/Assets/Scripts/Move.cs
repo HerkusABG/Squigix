@@ -29,11 +29,18 @@ public class Move : InitComponent
 
     Quaternion lastRotation;
 
+    Animator animator;
 
     public override void Initialize()
     {
         manoRigidbody = GetComponent<Rigidbody>();
         ObjectList.SquigixMove = this;
+
+        if(GetComponentInChildren<Animator>() != null)
+        {
+            // animator.SetBool("isAwake", true);
+            animator = GetComponentInChildren<Animator>();
+        }
     }
 
     private void Update()
@@ -44,6 +51,11 @@ public class Move : InitComponent
         if(direction.x != 0 || direction.y != 0)
         {
             lastRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
         Mesh.rotation = lastRotation;
     }
